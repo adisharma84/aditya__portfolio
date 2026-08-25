@@ -537,7 +537,6 @@
 
         </div>
 
-
         <!-- FORM -->
 
         <div class="contact-form">
@@ -566,9 +565,9 @@
             </div>
 
 
-            <button type="button">
-                SEND MESSAGE
-                <span>↗</span>
+          <button type="button" onclick="this.parentElement.querySelectorAll('input, textarea').forEach(field => field.value = '')">
+            SEND MESSAGE
+            <span>↗</span>
             </button>
 
         </div>
