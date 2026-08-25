@@ -144,45 +144,25 @@ heroReveal.addEventListener("mouseleave", () => {
     });
 
 });
-// =========================================
-// BEHIND THE MASK - DROP ON SCROLL
-// =========================================
+// ===============================
+// ABOUT PHOTO - CONTINUOUS SWING
+// ===============================
 
-gsap.registerPlugin(ScrollTrigger);
+window.addEventListener("load", () => {
 
-const aboutPhoto = document.querySelector(".about-photo");
+    gsap.killTweensOf(".about-photo img");
 
-if (aboutPhoto) {
-
-    // Starting position
-    gsap.set(aboutPhoto, {
-        y: -300,
-        opacity: 0
+    gsap.to(".about-photo img", {
+        rotation: 4,
+        duration: 1.2,
+        ease: "sine.inOut",
+        transformOrigin: "50% 0%",
+        yoyo: true,
+        repeat: -1
     });
 
-    ScrollTrigger.create({
-        trigger: ".about-section",
-        start: "top 75%",
-
-        onEnter: () => {
-
-            gsap.to(aboutPhoto, {
-                y: 0,
-                opacity: 1,
-                duration: 1.3,
-                ease: "bounce.out",
-                overwrite: true
-            });
-
-        },
-
-        onLeaveBack: () => {
-
-            gsap.set(aboutPhoto, {
-                y: -300,
-                opacity: 0
-            });
-
-        }
-    });
-}
+});
+gsap.to(".about-photo img", {
+    x: 100,
+    duration: 2
+});
