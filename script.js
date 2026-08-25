@@ -166,3 +166,22 @@ gsap.to(".about-photo img", {
     x: 100,
     duration: 2
 });
+// ===============================
+// CONTACT FORM RESET
+// ===============================
+
+const contactForm = document.querySelector(".contact-form");
+const sendButton = contactForm.querySelector("button");
+
+sendButton.addEventListener("click", () => {
+
+    // Thoda delay taaki click properly register ho
+    setTimeout(() => {
+
+        contactForm.querySelectorAll("input, textarea").forEach(field => {
+            field.value = "";
+        });
+
+    }, 100);
+
+});
